@@ -1,5 +1,5 @@
 Line1-modified
 Line2
 Line3
-Line4 from b1
-Lin35 from b1
+Line4 from b3
+Lin35 from b3
