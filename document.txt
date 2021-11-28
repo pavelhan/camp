@@ -3,3 +3,4 @@ Line2
 Line3
 Line4 from b3
 Lin35 from b3
+Line 6 from b2
