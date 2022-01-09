@@ -1,4 +1,7 @@
 {
-  "BASE_URL": "https://app.cosmosid-prod.com",
-  "_OS": "LINUX"
+  "BASE_URL": "https://app.cosmosid.com",
+  "_OS": "LINUX",
+  "EMAIL": "gl-procamp-2021@globallogic.com",
+  "PASSWORD": "A+94\\=PgT(g;w6K,",
+  "DEFAULT_TOKEN_EXPIRE": "60 * 60 * 24"
 }
