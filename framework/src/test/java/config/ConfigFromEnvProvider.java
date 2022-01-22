@@ -1,6 +1,6 @@
 package config;
 
-public class ConfigFromEnvProvider implements Provider {
+public class ConfigFromEnvProvider extends Provider {
     /*Allows configuration through the env variables.*/
     @Override
     public String get(String key) {

@@ -6,12 +6,26 @@
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
+framework/allure-results/
+framework/build/
+framework/requests_logs.txt
+
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/compiler.xml
+.idea/misc.xml
+.idea/camp.iml
+.idea/encodings.xml
+.idea/jarRepositories.xml
+.idea/modules.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml
+framework/framework.iml
+
 
 # AWS User-specific
 .idea/**/aws.xml

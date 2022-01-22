@@ -1,43 +1,18 @@
 package api.clients.web.auth_providers;
 
-import api.clients.web.urls.CIDEndpoints;
-import config.Config;
-import enums.CfgParams;
+import static config.Config.config;
 import http_session.HttpSession;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
+import static config.Config.getEndpoint;
 import models.User;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
+
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 
-public class BasicAuth implements AuthProvider {
-    String DEFAULT_TOKEN_EXPIRE = CfgParams.DEFAULT_TOKEN_EXPIRE.toString();
-    String token = "X-Token";
-    HttpSession httpSession;
-    String url;
-    JsonPath jsonString;
-    PrintStream log;
-    RequestSpecification requestSpecification;
+public class BasicAuth extends AuthProvider {
 
-    public RequestSpecification reqSpec(){
-        try {
-            log = new PrintStream(new FileOutputStream("requests_logs.txt"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return new RequestSpecBuilder()
-                .addFilter(RequestLoggingFilter.logRequestTo(log))
-                .addFilter(RequestLoggingFilter.logRequestTo(log)).build();
-    }
-
-    @Override
     public HttpSession login(User user, String expires) throws Exception {
         /*Default login.
         :param user: User-type object based on models.User
@@ -52,9 +27,9 @@ public class BasicAuth implements AuthProvider {
             }
         }
         //Setting RestAssured base URI
-        baseURI = Config.getInstance().get(CfgParams.BASE_URL.toString());
+        baseURI = config().get("BASE_URL");
         //Setting app login url
-        url = baseURI + CIDEndpoints.valueOf("login").getResource();
+        url = baseURI + getEndpoint("login");
 
         //Getting http session with basic auth (sending login request and save session data (token))
         Response response = given().spec(reqSpec()).auth().preemptive().basic(user.getEmail(),user.getPassword())

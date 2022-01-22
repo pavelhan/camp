@@ -1,7 +1,9 @@
 {
   "BASE_URL": "https://app.cosmosid.com",
+  "UI_TESTS_BASE_URL": "https://habr.com/ru/all",
   "_OS": "LINUX",
   "EMAIL": "gl-procamp-2021@globallogic.com",
   "PASSWORD": "A+94\\=PgT(g;w6K,",
-  "DEFAULT_TOKEN_EXPIRE": "60 * 60 * 24"
+  "DEFAULT_TOKEN_EXPIRE": "60 * 60 * 24",
+  "USERS_JSON_PATH": "src\\test\\java\\providers\\users\\users.json"
 }

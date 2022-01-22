@@ -1,7 +1,5 @@
 package config;
 
-import enums.CfgParams;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -10,7 +8,7 @@ public class Config extends BaseConfig{
     private static Config INSTANCE;
     private final String  DEFAULT_ENV = "prod";
 
-    private Config() {
+    private Config() throws Exception {
         String json_config_path =
                 System.getenv("TARGET") != null ?
                         System.getenv("TARGET") :
@@ -20,21 +18,24 @@ public class Config extends BaseConfig{
         ConfigFromSimpleJsonProvider app_json_conf = new ConfigFromSimpleJsonProvider(json_config_path);
         ConfigFromDictProvider app_defaults = new ConfigFromDictProvider(
                 new HashMap<String,String>() {{
-                    put(CfgParams.DEFAULT_TOKEN_EXPIRE.toString(), "60 * 60 * 24");
+                    put("DEFAULT_TOKEN_EXPIRE", "60 * 60 * 24");
                 }});
         this.configProvider =
                 new HierarchicalProvider(new ArrayList<Provider>(Arrays.asList(app_env, app_json_conf, app_defaults)));
-        super.register(CfgParams.BASE_URL.toString());
-        super.register(CfgParams._OS.toString());
-        super.register(CfgParams.EMAIL.toString());
-        super.register(CfgParams.PASSWORD.toString());
-        super.register(CfgParams.DEFAULT_TOKEN_EXPIRE.toString());
+        register("BASE_URL");
+        register("_OS");
+        register("EMAIL");
+        register("PASSWORD");
+        register("DEFAULT_TOKEN_EXPIRE");
+        register("USERS_JSON_PATH");
+        register("UI_TESTS_BASE_URL");
     }
 
-    public static Config getInstance(){
+    public static Config config() throws Exception {
         if(INSTANCE == null){
             INSTANCE = new Config();
         }
         return INSTANCE;
     }
+
 }

@@ -1,6 +1,7 @@
 package models;
 
 import lombok.Data;
+import providers.users.UsersProvider;
 
 @Data
 public class User {

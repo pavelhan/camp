@@ -1,5 +1,5 @@
 package config;
 
-public interface Provider {
-    String get(String key);
+public abstract class Provider {
+    public abstract String get(String key);
 }

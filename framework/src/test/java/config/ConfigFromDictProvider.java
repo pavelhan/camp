@@ -3,7 +3,7 @@ package config;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConfigFromDictProvider implements Provider{
+public class ConfigFromDictProvider extends Provider{
     /*Allows configuration through the simple dict object*/
     HashMap config;
 

@@ -2,7 +2,7 @@ package config;
 
 import java.util.ArrayList;
 
-public class HierarchicalProvider implements Provider{
+public class HierarchicalProvider extends Provider{
     /*Allows to create hierarchical override model,
     for ex:
     1. Env config (most priority)
